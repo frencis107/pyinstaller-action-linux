@@ -18,8 +18,8 @@ PYPI_INDEX_URL=$3
 WORKDIR=${SRCDIR:-/src}
 
 SPEC_FILE=${4:-*.spec}
-apt-get install build-essential cargo -y
-export CRYPTOGRAPHY_DONT_BUILD_RUST=1
+apt-get install build-essential -y
+/root/.pyenv/shims/python -m pip install -U "bcrypt<4.0.0"
 /root/.pyenv/shims/python -m pip install --upgrade pip wheel setuptools
 
 #
