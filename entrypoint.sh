@@ -38,6 +38,8 @@ if [[ "$PYPI_URL" != "https://pypi.python.org/" ]] || \
     echo "Using custom pip.conf: "
     cat /root/.pip/pip.conf
 fi
+apt-get install build-essential cargo
+
 
 cd $WORKDIR
 
