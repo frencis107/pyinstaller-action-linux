@@ -18,7 +18,8 @@ PYPI_INDEX_URL=$3
 WORKDIR=${SRCDIR:-/src}
 
 SPEC_FILE=${4:-*.spec}
-
+apt-get install build-essential cargo -y
+export CRYPTOGRAPHY_DONT_BUILD_RUST=1
 /root/.pyenv/shims/python -m pip install --upgrade pip wheel setuptools
 
 #
@@ -38,7 +39,7 @@ if [[ "$PYPI_URL" != "https://pypi.python.org/" ]] || \
     echo "Using custom pip.conf: "
     cat /root/.pip/pip.conf
 fi
-apt-get install build-essential cargo
+
 
 
 cd $WORKDIR
